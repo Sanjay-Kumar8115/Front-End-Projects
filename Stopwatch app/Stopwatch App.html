@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            width: 300px;
+            height: 300px;
+            border: 3px solid darkorchid;
+            background-color: rgb(171, 232, 117);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #TimeBox {
+            border: 2px solid black;
+            display: inline-block;
+            font-size: 2em;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stopwatch</h1>
+        <div id="TimeBox">00:00:00:00</div>
+        <div class="buttons">
+            <button type="button" id="start">Start</button>
+            <button type="button" id="stop">Stop</button>
+            <button type="button" id="clear">Clear</button>
+        </div>
+    </div>
+    <script>
+        let startTime, elapsedTime = 0, intervalId;
+        const TimeBox = document.getElementById('TimeBox');
+        const startButton = document.getElementById('start');
+        const stopButton = document.getElementById('stop');
+        const clearButton = document.getElementById('clear');
+
+        function formatTime(ms) {
+            let totalSeconds = Math.floor(ms / 1000);
+            let hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+            let minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+            let seconds = String(totalSeconds % 60).padStart(2, '0');
+            let milliseconds = String(ms % 1000).padStart(2, '0');
+            return `${hours}:${minutes}:${seconds}:${milliseconds}`;
+        }
+
+        function startStopwatch() {
+            startTime = Date.now() - elapsedTime;
+            intervalId = setInterval(() => {
+                elapsedTime = Date.now() - startTime;
+                TimeBox.textContent = formatTime(elapsedTime);
+            }, 10);
+        }
+
+        function stopStopwatch() {
+            clearInterval(intervalId);
+        }
+
+        function clearStopwatch() {
+            clearInterval(intervalId);
+            elapsedTime = 0;
+            TimeBox.textContent = "00:00:00:00";
+        }
+
+        startButton.addEventListener('click', startStopwatch);
+        stopButton.addEventListener('click', stopStopwatch);
+        clearButton.addEventListener('click', clearStopwatch);
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop watch</title>
+    <style>
+        body{
+            padding: auto;
+            margin: auto;
+        }
+        .container{
+            text-align: center;
+            width: 300px;
+            height: 300px;
+            border: 3px solid darkorchid;
+            background-color: rgb(171, 232, 117);
+    
+         
+        }
+      #TimeBox{
+        border: 2px solid black;
+         display:inline;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stopwatch</h1>
+        <div class="buttons">
+            <button type="button" id="start">Start</button>
+            <button type="button" id="stop">Stop</button>
+            <button type="button" id="clear">Clear</button>
+        </div><br>
+        <div id="TimeBox">00:00:00:00</div>
+    </div>
+    <script>
+        const start = document.getElementById('start');
+        const stop = document.getElementById('stop');
+        const clear = document.getElementById('clear');
+        const TimeBox = document.getElementById('TimeBox');
+        
+        const updateTime = function () {
+            let now = new Date();
+        let hh = Number(now.getHours())*0;
+        let mm = Number(now.getMinutes())*0;
+        let ss = Number(now.getSeconds())*0;
+        let ms = Number(now.getMilliseconds())*0;
+        TimeBox.innerHTML=`${hh}:${mm}:${ss}:${ms}`;
+
+        }
+        setInterval(updateTime,1000);
+        updateTime();
+
+
+
+
+
+
+
+    </script>
+</body>
+</html> -->

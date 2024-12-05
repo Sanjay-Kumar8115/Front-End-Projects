@@ -1,0 +1,54 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <title>Digital Clock</title>
+    <style>
+        .container {
+            border: 5px solid rgb(23, 204, 204);
+            background-color: honeydew;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button type="button" class="btn btn-success" id="showBtn">Show Time</button>
+        <button type="button" class="btn btn-success" id="hideBtn">Hide Time</button>
+        <div>Current Time is: <span id="currTime"></span></div>
+    </div>
+    <script>
+        function updateTime() {
+            const currTime = document.querySelector('#currTime');
+            const now = new Date();
+            let hh = now.getHours();
+            const mm = String(now.getMinutes()).padStart(2, '0');
+            const ss = String(now.getSeconds()).padStart(2, '0');
+            const amPm = hh >= 12 ? 'PM' : 'AM';
+            hh = hh % 12;
+            hh = hh ? hh : 12; // the hour '0' should be '12'
+            hh = String(hh).padStart(2, '0');
+            currTime.textContent = `${hh}:${mm}:${ss} ${amPm}`;
+        }
+
+        const showTime = document.querySelector('#showBtn');
+        const hideTime = document.querySelector('#hideBtn');
+        const currTimeDiv = document.querySelector('#currTime');
+
+        showTime.addEventListener('click', () => {
+            currTimeDiv.style.display = 'inline';
+        });
+
+        hideTime.addEventListener('click', () => {
+            currTimeDiv.style.display = 'none';
+        });
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
+
