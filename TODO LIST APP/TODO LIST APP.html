@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height of the viewport */
+            border: 2px solid black;
+            background-color: rgb(247, 196, 255);
+        }
+        .container {
+            place-items: center;
+            padding: 20px; 
+            background-color: rgb(196, 255, 243);
+            border: 1px solid #ccc;
+        }
+        .task {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <main class="main">
+        <section class="container">
+            <h1>To Do List : Today's Date and Time</h1>  
+            <label for="name">Add New Task</label><br>
+            <input type="text" id="input-field" name="name"><br>
+            <button type="button" class="btnAdd">Add task</button>
+            <h1>Todo list Task List</h1>
+            <fieldset class="task-field">
+                <!-- Task will be added here in div element -->
+            </fieldset>
+        </section>
+    </main>
+    <script src="tut1.js"></script>
+</body>
+</html>
