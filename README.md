@@ -41,11 +41,11 @@ To get started with any of these projects, follow these steps:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/front-end-projects.git
+    git clone https://github.com/Sanjay-Kumar8115/Front-End-Projects.git
     ```
 2. **Navigate to the project directory**:
     ```bash
-    cd front-end-projects/project-name
+    cd Front-End-Projects/{project-name}
     ```
 3. **Open the project in your preferred code editor**.
 4. **Run the project by opening the `index.html` file in a web browser**.
@@ -68,7 +68,7 @@ This repository is licensed under the MIT License. See the [LICENSE](LICENSE) fi
 
 If you have any questions or suggestions, feel free to reach out!
 
-- **Email**: youremail@example.com
-- **Twitter**: [@yourusername](https://twitter.com/yourusername)
+- **Email**: sanjaykumarg8115@gmail.com
+
 
 Happy coding! 🚀
